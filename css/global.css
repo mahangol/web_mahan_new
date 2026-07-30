@@ -1,0 +1,964 @@
+/* =========================================================
+   MAHAN WEBSITE — GLOBAL DESIGN SYSTEM
+   ========================================================= */
+
+/* =========================================================
+   1. CSS RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure,
+blockquote {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* =========================================================
+   2. CSS VARIABLES
+   ========================================================= */
+
+:root {
+  /* Brand */
+  --color-primary: #0b1f3a;
+  --color-primary-light: #17375e;
+  --color-primary-dark: #061426;
+
+  --color-gold: #bf9200;
+  --color-gold-light: #d4ad3c;
+  --color-gold-dark: #967300;
+
+  /* Neutral */
+  --color-white: #ffffff;
+  --color-cream: #f2e8d7;
+  --color-surface: #faf8f4;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-500: #6b7280;
+  --color-gray-700: #374151;
+  --color-gray-900: #111827;
+  --color-black: #0a0a0a;
+
+  /* Semantic */
+  --color-background: var(--color-white);
+  --color-surface-alt: var(--color-surface);
+  --color-text: var(--color-gray-900);
+  --color-text-muted: var(--color-gray-500);
+  --color-border: var(--color-gray-200);
+
+  /* Typography */
+  --font-primary: "Estedad", "Vazirmatn", sans-serif;
+  --font-display: "Vazirmatn", "Estedad", sans-serif;
+
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.7;
+  --line-height-relaxed: 2;
+
+  /* Spacing System */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Layout */
+  --container-width: 1200px;
+  --container-padding: 1.5rem;
+  --navbar-height: 76px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(11, 31, 58, 0.06);
+  --shadow-md: 0 8px 24px rgba(11, 31, 58, 0.1);
+  --shadow-lg: 0 16px 40px rgba(11, 31, 58, 0.14);
+
+  /* Transitions */
+  --transition-fast: 180ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Z-index */
+  --z-navbar: 1000;
+  --z-overlay: 1100;
+  --z-drawer: 1200;
+}
+
+/* =========================================================
+   3. ESTEDAD FONT
+   ========================================================= */
+
+@font-face {
+  font-family: "Estedad";
+  src: url("../assets/fonts/Estedad-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Estedad";
+  src: url("../assets/fonts/Estedad-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Estedad";
+  src: url("../assets/fonts/Estedad-SemiBold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Estedad";
+  src: url("../assets/fonts/Estedad-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* =========================================================
+   3b. VAZIRMATN FONT (display / heading pairing)
+   ========================================================= */
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../assets/fonts/Vazirmatn-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../assets/fonts/Vazirmatn-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../assets/fonts/Vazirmatn-SemiBold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("../assets/fonts/Vazirmatn-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* =========================================================
+   4. GLOBAL TYPOGRAPHY
+   ========================================================= */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  direction: rtl;
+  text-align: right;
+  min-height: 100vh;
+
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: var(--line-height-normal);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.01em;
+}
+
+p {
+  color: var(--color-text-muted);
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* =========================================================
+   5. GLOBAL CONTAINER
+   ========================================================= */
+
+.container {
+  width: min(100% - (var(--container-padding) * 2), var(--container-width));
+  margin-inline: auto;
+}
+
+/* =========================================================
+   6. GLOBAL SPACING SYSTEM
+   ========================================================= */
+
+.section {
+  padding-block: var(--space-24);
+}
+
+.section-sm {
+  padding-block: var(--space-16);
+}
+
+.section-lg {
+  padding-block: var(--space-32);
+}
+
+.section-header {
+  max-width: 720px;
+  margin-inline: auto;
+  margin-bottom: var(--space-12);
+  text-align: center;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+
+  color: var(--color-gold);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.section-title {
+  margin-bottom: var(--space-4);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.section-description {
+  max-width: 650px;
+  margin-inline: auto;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+/* =========================================================
+   7. BUTTONS
+   ========================================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+
+  min-height: 48px;
+  padding: var(--space-3) var(--space-6);
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  line-height: 1;
+
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-light);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-gold-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-light {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.btn-light:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* =========================================================
+   8. COMMON CARDS
+   ========================================================= */
+
+.card {
+  padding: var(--space-6);
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(191, 146, 0, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.card-icon {
+  display: grid;
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--space-5);
+  place-items: center;
+
+  border-radius: var(--radius-md);
+  background-color: var(--color-cream);
+  color: var(--color-gold);
+}
+
+.card-title {
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-xl);
+}
+
+.card-description {
+  line-height: var(--line-height-relaxed);
+}
+
+/* =========================================================
+   9. STICKY NAVBAR
+   ========================================================= */
+
+.site-navbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-navbar);
+
+  width: 100%;
+  height: var(--navbar-height);
+
+  background-color: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid rgba(11, 31, 58, 0.08);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transition:
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.site-navbar.is-scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100%;
+}
+
+.navbar-logo {
+  flex-shrink: 0;
+
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+
+  transition: color var(--transition-fast);
+}
+
+.navbar-logo:hover {
+  color: var(--color-gold);
+}
+
+/* =========================================================
+   10. DESKTOP NAVIGATION
+   ========================================================= */
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.navbar-link {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  min-height: var(--navbar-height);
+  padding-inline: var(--space-4);
+
+  color: var(--color-gray-700);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.navbar-link::after {
+  content: "";
+
+  position: absolute;
+  right: var(--space-4);
+  bottom: 0;
+  left: var(--space-4);
+
+  height: 2px;
+
+  background-color: var(--color-gold);
+
+  transform: scaleX(0);
+  transform-origin: center;
+
+  transition: transform var(--transition-base);
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: var(--color-primary);
+}
+
+.navbar-link:hover::after,
+.navbar-link.active::after {
+  transform: scaleX(1);
+}
+
+/* =========================================================
+   11. MOBILE HAMBURGER
+   ========================================================= */
+
+.navbar-toggle {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  background-color: transparent;
+  border-radius: var(--radius-sm);
+
+  color: var(--color-primary);
+}
+
+.navbar-toggle span {
+  display: block;
+
+  width: 24px;
+  height: 2px;
+  margin: 5px auto;
+
+  background-color: currentColor;
+  border-radius: var(--radius-full);
+
+  transition:
+    transform var(--transition-base),
+    opacity var(--transition-base);
+}
+
+.navbar-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================================
+   12. MOBILE NAVIGATION DRAWER
+   ========================================================= */
+
+.navbar-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+
+  background-color: rgba(6, 20, 38, 0.5);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity var(--transition-base),
+    visibility var(--transition-base);
+}
+
+.navbar-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: var(--z-drawer);
+
+  display: flex;
+  flex-direction: column;
+
+  width: min(85vw, 360px);
+  height: 100dvh;
+  padding: var(--space-8);
+
+  background-color: var(--color-white);
+
+  box-shadow: var(--shadow-lg);
+
+  transform: translateX(100%);
+  visibility: hidden;
+
+  transition:
+    transform var(--transition-base),
+    visibility var(--transition-base);
+}
+
+.mobile-drawer.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mobile-drawer-close {
+  display: grid;
+
+  width: 40px;
+  height: 40px;
+
+  place-items: center;
+
+  background-color: var(--color-gray-100);
+  border-radius: var(--radius-sm);
+
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  padding-top: var(--space-6);
+}
+
+.mobile-nav-link {
+  display: block;
+
+  padding: var(--space-4);
+
+  border-radius: var(--radius-md);
+
+  color: var(--color-gray-700);
+  font-weight: 500;
+
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background-color: var(--color-cream);
+  color: var(--color-primary);
+}
+
+/* =========================================================
+   13. SHARED FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding-top: var(--space-16);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: var(--space-12);
+
+  padding-bottom: var(--space-12);
+}
+
+.footer-brand {
+  max-width: 420px;
+}
+
+.footer-logo {
+  display: inline-block;
+  margin-bottom: var(--space-4);
+
+  color: var(--color-white);
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+}
+
+.footer-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: var(--line-height-relaxed);
+}
+
+.footer-title {
+  margin-bottom: var(--space-5);
+
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--color-gold-light);
+}
+
+.footer-bottom {
+  padding-block: var(--space-6);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--font-size-sm);
+  text-align: center;
+}
+
+/* =========================================================
+   14. SCROLL ANIMATIONS
+   ========================================================= */
+
+[data-animate] {
+  opacity: 0;
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+}
+
+[data-animate="fade-up"] {
+  transform: translateY(30px);
+}
+
+[data-animate="fade-down"] {
+  transform: translateY(-30px);
+}
+
+[data-animate="fade-right"] {
+  transform: translateX(30px);
+}
+
+[data-animate="fade-left"] {
+  transform: translateX(-30px);
+}
+
+[data-animate="scale"] {
+  transform: scale(0.95);
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* =========================================================
+   15. ACCESSIBILITY
+   ========================================================= */
+
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   16. RESPONSIVE BREAKPOINTS
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  :root {
+    --container-padding: 1.25rem;
+  }
+
+  .navbar-menu {
+    gap: 0;
+  }
+
+  .navbar-link {
+    padding-inline: var(--space-3);
+  }
+
+  .navbar-link::after {
+    right: var(--space-3);
+    left: var(--space-3);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 1rem;
+    --navbar-height: 68px;
+  }
+
+  .section {
+    padding-block: var(--space-16);
+  }
+
+  .section-lg {
+    padding-block: var(--space-20);
+  }
+
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-brand {
+    grid-column: auto;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .card {
+    padding: var(--space-5);
+  }
+
+  .mobile-drawer {
+    width: 90vw;
+    padding: var(--space-6);
+  }
+}
+
+/* =========================================================
+   17. REDUCED MOTION SUPPORT
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+  }
+}

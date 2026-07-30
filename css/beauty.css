@@ -1,0 +1,1030 @@
+/* =========================================================
+   LUNA BEAUTY — PAGE STYLES
+   ========================================================= */
+
+:root {
+  --beauty-charcoal: #1a1a1a;
+  --beauty-charcoal-soft: #262424;
+  --beauty-rose: #d8a7b1;
+  --beauty-rose-light: #ead2d7;
+  --beauty-white: #faf7f2;
+  --beauty-gold: #c9a227;
+  --beauty-gold-light: #e1c86a;
+  --beauty-gray: #6b7280;
+}
+
+
+/* =========================================================
+   PAGE BASE
+   ========================================================= */
+
+.beauty-page {
+  background-color: var(--beauty-white);
+  color: var(--beauty-charcoal);
+}
+
+.beauty-page .site-navbar {
+  background-color: rgba(250, 247, 242, 0.9);
+  border-bottom-color: rgba(26, 26, 26, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.beauty-page .navbar-logo {
+  color: var(--beauty-charcoal);
+}
+
+.beauty-page .navbar-link {
+  color: var(--beauty-charcoal);
+}
+
+.beauty-page .navbar-link:hover,
+.beauty-page .navbar-link.active {
+  color: var(--beauty-gold);
+}
+
+.beauty-page .navbar-toggle span {
+  background-color: var(--beauty-charcoal);
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.beauty-btn-primary {
+  background-color: var(--beauty-charcoal);
+  color: var(--beauty-white);
+
+  border: 1px solid var(--beauty-charcoal);
+
+  box-shadow:
+    0 10px 30px rgba(26, 26, 26, 0.16);
+}
+
+.beauty-btn-primary:hover {
+  background-color: var(--beauty-gold);
+  border-color: var(--beauty-gold);
+
+  color: var(--beauty-charcoal);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 36px rgba(201, 162, 39, 0.2);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.beauty-hero {
+  position: relative;
+  isolation: isolate;
+
+  min-height: calc(100svh - var(--navbar-height));
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background-color: var(--beauty-white);
+}
+
+.beauty-hero-image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+
+.beauty-hero-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  animation: beautyHeroReveal 1.2s ease-out both;
+}
+
+.beauty-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(250, 247, 242, 0.98) 0%,
+      rgba(250, 247, 242, 0.9) 28%,
+      rgba(250, 247, 242, 0.52) 52%,
+      rgba(250, 247, 242, 0.08) 78%,
+      rgba(250, 247, 242, 0) 100%
+    );
+}
+
+.beauty-hero-content {
+  min-height: calc(100svh - var(--navbar-height));
+
+  display: flex;
+  align-items: center;
+
+  padding-block: var(--space-20);
+}
+
+.beauty-hero-copy {
+  width: min(100%, 600px);
+}
+
+.beauty-eyebrow,
+.beauty-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  color: var(--beauty-gold);
+
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.beauty-eyebrow {
+  margin-bottom: var(--space-5);
+}
+
+.beauty-eyebrow::before,
+.beauty-section-label::before {
+  content: "";
+
+  width: 28px;
+  height: 1px;
+
+  background-color: currentColor;
+}
+
+.beauty-hero h1 {
+  max-width: 580px;
+
+  margin-bottom: var(--space-6);
+
+  color: var(--beauty-charcoal);
+
+  font-size: clamp(2.7rem, 6vw, 5.5rem);
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.beauty-hero h1 span {
+  display: block;
+
+  color: var(--beauty-rose);
+
+  font-weight: 500;
+}
+
+.beauty-hero p {
+  max-width: 500px;
+
+  margin-bottom: var(--space-8);
+
+  color: rgba(26, 26, 26, 0.7);
+
+  font-size: var(--font-size-lg);
+  line-height: 2;
+}
+
+.beauty-hero-badge {
+  position: absolute;
+  left: var(--space-8);
+  bottom: var(--space-8);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+
+  color: rgba(26, 26, 26, 0.45);
+
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+}
+
+@keyframes beautyHeroReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.beauty-section-header {
+  margin-bottom: var(--space-12);
+}
+
+.beauty-section-header .beauty-section-label {
+  margin-bottom: var(--space-4);
+}
+
+.beauty-section-header .section-title {
+  color: var(--beauty-charcoal);
+}
+
+
+/* =========================================================
+   CATEGORIES
+   ========================================================= */
+
+.beauty-categories {
+  background-color: var(--beauty-white);
+}
+
+.beauty-category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+.beauty-category-card {
+  position: relative;
+
+  min-height: 440px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-lg);
+
+  background-color: var(--beauty-charcoal);
+
+  box-shadow:
+    0 10px 40px rgba(26, 26, 26, 0.08);
+
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.beauty-category-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 20px 50px rgba(26, 26, 26, 0.16);
+}
+
+.category-image {
+  position: absolute;
+  inset: 0;
+}
+
+.category-image::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(26, 26, 26, 0.02) 25%,
+      rgba(26, 26, 26, 0.78) 100%
+    );
+}
+
+.category-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.7s ease;
+}
+
+.beauty-category-card:hover .category-image img {
+  transform: scale(1.06);
+}
+
+.category-content {
+  position: relative;
+  z-index: 1;
+
+  padding: var(--space-6);
+
+  color: var(--beauty-white);
+}
+
+.category-content > span {
+  display: block;
+
+  margin-bottom: var(--space-3);
+
+  color: var(--beauty-gold-light);
+
+  font-size: var(--font-size-sm);
+}
+
+.category-content h3 {
+  margin-bottom: var(--space-2);
+
+  font-size: var(--font-size-xl);
+}
+
+.category-content p {
+  color: rgba(250, 247, 242, 0.72);
+
+  font-size: var(--font-size-sm);
+}
+
+.category-arrow {
+  position: absolute;
+  left: var(--space-6);
+  top: var(--space-6);
+  z-index: 2;
+
+  display: grid;
+
+  width: 42px;
+  height: 42px;
+
+  place-items: center;
+
+  background-color: rgba(250, 247, 242, 0.14);
+
+  border: 1px solid rgba(250, 247, 242, 0.25);
+  border-radius: var(--radius-full);
+
+  color: var(--beauty-white);
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.beauty-category-card:hover .category-arrow {
+  background-color: var(--beauty-white);
+  color: var(--beauty-charcoal);
+}
+
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
+
+.beauty-products {
+  background-color: #f3eee8;
+}
+
+.beauty-products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+.beauty-product-card {
+  overflow: hidden;
+
+  background-color: var(--beauty-white);
+
+  border: 1px solid rgba(26, 26, 26, 0.07);
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    0 8px 30px rgba(26, 26, 26, 0.05);
+
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.beauty-product-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 20px 45px rgba(26, 26, 26, 0.1);
+}
+
+.product-image-wrap {
+  position: relative;
+
+  height: 340px;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #ffffff 0%,
+      #f5eee9 70%,
+      #eadbd7 100%
+    );
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.7s ease;
+}
+
+.beauty-product-card:hover .product-image {
+  transform: scale(1.04);
+}
+
+.product-badge {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 2;
+
+  padding: 6px 12px;
+
+  background-color: var(--beauty-charcoal);
+
+  border-radius: var(--radius-full);
+
+  color: var(--beauty-white);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.product-info {
+  padding: var(--space-6);
+}
+
+.product-rating {
+  margin-bottom: var(--space-3);
+
+  color: var(--beauty-gold);
+
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+}
+
+.product-info h3 {
+  margin-bottom: var(--space-3);
+
+  color: var(--beauty-charcoal);
+
+  font-size: var(--font-size-lg);
+}
+
+.product-description {
+  min-height: 48px;
+  margin-bottom: var(--space-5);
+
+  color: var(--beauty-gray);
+
+  font-size: var(--font-size-sm);
+  line-height: 1.9;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: var(--space-5);
+
+  border-top: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+.product-price {
+  color: var(--beauty-charcoal);
+
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+
+  direction: ltr;
+}
+
+.product-buy-btn {
+  min-width: 78px;
+  min-height: 42px;
+
+  padding-inline: var(--space-5);
+
+  background-color: var(--beauty-charcoal);
+
+  border: 1px solid var(--beauty-charcoal);
+  border-radius: var(--radius-full);
+
+  color: var(--beauty-white);
+
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.product-buy-btn:hover {
+  background-color: var(--beauty-gold);
+  border-color: var(--beauty-gold);
+
+  color: var(--beauty-charcoal);
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.beauty-about {
+  padding-block: var(--space-24);
+
+  background-color: var(--beauty-white);
+}
+
+.beauty-about-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: var(--space-20);
+
+  align-items: center;
+}
+
+.beauty-about-visual {
+  position: relative;
+
+  padding-left: var(--space-8);
+}
+
+.about-image-main {
+  position: relative;
+
+  height: 650px;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-xl);
+
+  box-shadow:
+    0 20px 60px rgba(26, 26, 26, 0.12);
+}
+
+.about-image-main img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: 15% 45%;
+}
+
+.about-floating-card {
+  position: absolute;
+  left: 0;
+  bottom: var(--space-10);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+
+  min-width: 180px;
+
+  padding: var(--space-6);
+
+  background-color: rgba(250, 247, 242, 0.9);
+
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  border-radius: var(--radius-md);
+
+  box-shadow:
+    0 15px 40px rgba(26, 26, 26, 0.12);
+
+  backdrop-filter: blur(16px);
+}
+
+.about-floating-card span {
+  color: var(--beauty-gold);
+
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+}
+
+.about-floating-card strong {
+  color: var(--beauty-charcoal);
+
+  font-size: var(--font-size-sm);
+}
+
+.beauty-about-content {
+  max-width: 580px;
+}
+
+.beauty-about-content .beauty-section-label {
+  margin-bottom: var(--space-5);
+}
+
+.beauty-about-content h2 {
+  margin-bottom: var(--space-6);
+
+  color: var(--beauty-charcoal);
+
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.5;
+}
+
+.beauty-about-content > p {
+  margin-bottom: var(--space-8);
+
+  color: var(--beauty-gray);
+
+  font-size: var(--font-size-lg);
+  line-height: 2.2;
+}
+
+.beauty-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  color: var(--beauty-charcoal);
+
+  font-weight: 600;
+
+  transition:
+    color var(--transition-fast),
+    gap var(--transition-fast);
+}
+
+.beauty-text-link:hover {
+  gap: var(--space-4);
+
+  color: var(--beauty-gold);
+}
+
+
+/* =========================================================
+   TRUST
+   ========================================================= */
+
+.beauty-trust {
+  background-color: var(--beauty-charcoal);
+
+  color: var(--beauty-white);
+}
+
+.beauty-trust .section-title {
+  color: var(--beauty-white);
+}
+
+.beauty-trust .beauty-section-label {
+  color: var(--beauty-gold-light);
+}
+
+.beauty-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+}
+
+.beauty-trust-card {
+  padding: var(--space-8);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.02)
+    );
+
+  border: 1px solid rgba(216, 167, 177, 0.18);
+  border-radius: var(--radius-lg);
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.beauty-trust-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(201, 162, 39, 0.5);
+
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
+.trust-icon {
+  display: grid;
+
+  width: 58px;
+  height: 58px;
+  margin-bottom: var(--space-6);
+
+  place-items: center;
+
+  background-color: rgba(201, 162, 39, 0.12);
+
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: var(--radius-full);
+
+  color: var(--beauty-gold-light);
+}
+
+.trust-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.beauty-trust-card h3 {
+  margin-bottom: var(--space-3);
+
+  color: var(--beauty-white);
+
+  font-size: var(--font-size-xl);
+}
+
+.beauty-trust-card p {
+  color: rgba(250, 247, 242, 0.6);
+
+  line-height: 2;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.beauty-cta {
+  padding-block: var(--space-20);
+
+  background-color: var(--beauty-white);
+}
+
+.beauty-cta-inner {
+  position: relative;
+  isolation: isolate;
+
+  overflow: hidden;
+
+  padding: var(--space-20) var(--space-8);
+
+  background:
+    linear-gradient(
+      135deg,
+      #ead2d7 0%,
+      #f6e7e9 45%,
+      #faf7f2 100%
+    );
+
+  border-radius: var(--radius-xl);
+
+  text-align: center;
+}
+
+.beauty-cta-orbit {
+  position: absolute;
+  top: -120px;
+  right: -80px;
+  z-index: -1;
+
+  width: 320px;
+  height: 320px;
+
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  border-radius: 50%;
+}
+
+.beauty-cta-inner .beauty-section-label {
+  margin-bottom: var(--space-5);
+
+  color: var(--beauty-gold);
+}
+
+.beauty-cta-inner h2 {
+  max-width: 750px;
+
+  margin-inline: auto;
+  margin-bottom: var(--space-5);
+
+  color: var(--beauty-charcoal);
+
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.5;
+}
+
+.beauty-cta-inner p {
+  max-width: 600px;
+
+  margin-inline: auto;
+  margin-bottom: var(--space-8);
+
+  color: rgba(26, 26, 26, 0.65);
+
+  font-size: var(--font-size-lg);
+  line-height: 2;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.beauty-footer {
+  background-color: var(--beauty-charcoal);
+}
+
+.beauty-footer .footer-logo {
+  color: var(--beauty-rose-light);
+}
+
+.beauty-footer .footer-title {
+  color: var(--beauty-gold-light);
+}
+
+.beauty-footer .footer-link:hover {
+  color: var(--beauty-rose-light);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .beauty-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .beauty-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .beauty-about-grid {
+    gap: var(--space-12);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .beauty-hero {
+    min-height: auto;
+
+    align-items: flex-end;
+  }
+
+  .beauty-hero-image {
+    object-position: 65% center;
+  }
+
+  .beauty-hero-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(250, 247, 242, 0.12) 0%,
+        rgba(250, 247, 242, 0.55) 32%,
+        rgba(250, 247, 242, 0.96) 72%,
+        var(--beauty-white) 100%
+      );
+  }
+
+  .beauty-hero-content {
+    min-height: calc(100svh - var(--navbar-height));
+
+    align-items: flex-end;
+
+    padding-top: 48vh;
+    padding-bottom: var(--space-16);
+  }
+
+  .beauty-hero h1 {
+    font-size: clamp(2.3rem, 10vw, 4rem);
+  }
+
+  .beauty-hero p {
+    font-size: var(--font-size-base);
+  }
+
+  .beauty-hero-badge {
+    display: none;
+  }
+
+  .beauty-category-grid,
+  .beauty-products-grid,
+  .beauty-trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .beauty-category-card {
+    min-height: 380px;
+  }
+
+  .product-image-wrap {
+    height: 360px;
+  }
+
+  .beauty-about {
+    padding-block: var(--space-16);
+  }
+
+  .beauty-about-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .beauty-about-visual {
+    padding-left: var(--space-5);
+  }
+
+  .about-image-main {
+    height: 500px;
+  }
+
+  .beauty-about-content {
+    max-width: none;
+  }
+
+  .beauty-cta-inner {
+    padding: var(--space-14) var(--space-5);
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .beauty-hero-content {
+    padding-top: 42vh;
+  }
+
+  .beauty-category-card {
+    min-height: 340px;
+  }
+
+  .product-image-wrap {
+    height: 320px;
+  }
+
+  .beauty-product-card .product-info {
+    padding: var(--space-5);
+  }
+
+  .about-image-main {
+    height: 420px;
+  }
+
+  .about-floating-card {
+    left: -4px;
+    bottom: var(--space-6);
+
+    min-width: 150px;
+
+    padding: var(--space-5);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .beauty-hero-image {
+    animation: none;
+  }
+
+}
